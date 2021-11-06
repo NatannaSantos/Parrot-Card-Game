@@ -84,11 +84,11 @@ main h1{
           transform: rotateY(180deg);
         }
   
-        .carta:hover .back-face {
+        .carta:active .back-face {
           transform: rotateY(0deg);
         }
   
-        .carta:hover .front-face {
+        .carta:active .front-face {
           transform: rotateY(-180deg);
         }
 @media(max-width: 614px){
