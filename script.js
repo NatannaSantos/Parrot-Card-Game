@@ -6,6 +6,7 @@ let cartasDoJogo = [];
 const nomeVetor = ["frente", "verso"];
 
 function entrarNumeroCartas(){
+   // numeroDeCartas = 4;
         numeroDeCartas = parseInt(prompt("Entre com a quantidade de cartas do jogo (o número deve estar entre 4 e 14 e ser par):"));
 
     while (numeroDeCartas<4 || numeroDeCartas>14 || numeroDeCartas%2!==0){
@@ -34,10 +35,10 @@ function entrarNumeroCartas(){
 
     for(let i=0; i<numeroDeCartas; i++){ 
         CartasSelecionadas.innerHTML += `<div class="carta">
-        <div class = "back-face face">
+        <div class = "face back-face">
         <img src = "img/${cartasDoJogo[i]}">
         </div>
-        <div class = "front-face face">
+        <div class = "face front-face" onclick="virarcarta(this)">
         <img src = "img/front.png">
         </div>        
         </div>`;
@@ -49,7 +50,12 @@ entrarNumeroCartas();
 function comparador() { 
 	return Math.random() - 0.5; 
 }
-function comparador2() { 
-	return Math.random() - 0.5; 
-}
+function virarcarta(){   
+   const girar = document.querySelector(".back-face");
+    girar.classList.add("virarback");
+    const girar2= document.querySelector(".front-face");
+    girar2.classList.add("virarfront");
+}  
+
+
 

@@ -16,40 +16,6 @@ main h1{
     text-align: center;
     padding-top: 40px;
     }
-
-    /*.card {
-        width: 200px;
-        height: 250px;
-        position: relative;
-      }
-
-      .face {
-        width: 100%;
-        height: 100%;
-        background-color: #A7E9AF;
-        border-radius: 10px;
-        box-shadow: 1px 1px 1px rgba(0,0,0,.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        backface-visibility: hidden;
-        transition: all .5s;
-        transform-style: preserve-3d;
-      }
-
-      .back-face {
-        transform: rotateY(180deg);
-      }
-
-      .card:hover .back-face {
-        transform: rotateY(0deg);
-      }
-
-      .card:hover .front-face {
-        transform: rotateY(-180deg);
-      }*/
-
     .cartas{
         display: flex;
         flex-wrap: wrap;
@@ -76,21 +42,24 @@ main h1{
         transition: all .5s;
         transform-style: preserve-3d;
         }
+
     .front-face img, .back-face img{
         width: 100px;
         height: 100px;
         }
-        .back-face {
+          .back-face {
           transform: rotateY(180deg);
         }
   
-        .carta:active .back-face {
+        .carta .virarback {
           transform: rotateY(0deg);
         }
   
-        .carta:active .front-face {
+        .carta .virarfront {
           transform: rotateY(-180deg);
         }
+       
+       
 @media(max-width: 614px){
     .cartas{
         flex-wrap: nowrap;
