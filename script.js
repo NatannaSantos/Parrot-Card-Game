@@ -6,7 +6,7 @@ let comparacao = null;
 let comparacaoDois = null;
 let selecao = null;
 let selecao2 = null;
-
+let cartasviradas = 0;
 
 const nomeVetor = ["frente", "verso"];
 
@@ -60,6 +60,7 @@ function virarcarta(selecionado){
    selecionado.classList.add("virarfrente");
    
    numeroDeCliques++;
+   
      
    if(numeroDeCliques%2 !==0){
        
@@ -72,15 +73,20 @@ function virarcarta(selecionado){
        console.log("qualquer coisa");
        selecao2=selecionado;
     setTimeout(cartavirada,1000);
-        
-    }  
-   
+        }  else{
+            cartasviradas+=2;
+        }
+       }
+    if(cartasviradas==numeroDeCartas){        
+        alert("você ganhou em "+ numeroDeCliques/2+" jogadas");
     }
 }    
 function cartavirada(){
     selecao.classList.remove("virarfrente");  
     selecao2.classList.remove("virarfrente");
   }
+
+
    
    
   
