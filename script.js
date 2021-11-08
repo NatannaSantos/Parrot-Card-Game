@@ -39,10 +39,10 @@ function entrarNumeroCartas(){
 
     for(let i=0; i<numeroDeCartas; i++){ 
         CartasSelecionadas.innerHTML += `<div class="carta" data-identifier="card">
-        <div class = "face back-face" data-identifier="back-face">
+        <div class = "face back-face" data-identifier="front-face">
         <img src = "img/${cartasDoJogo[i]}">
         </div>
-        <div class = "face front-face ${cartasDoJogo[i]}"  onclick="virarcarta(this)" data-identifier="front-face" >
+        <div class = "face front-face ${cartasDoJogo[i]}"  onclick="virarcarta(this)" data-identifier="back-face">
         <img src = "img/front.png">
         </div>        
         </div>`;
