@@ -3,12 +3,15 @@ let todasCartas = ["card1.gif", "card2.gif", "card3.gif", "card4.gif", "card5.gi
 let cartasDoJogo = [];
 let numeroDeCliques = 0;
 let comparacao = null;
+let comparacaoDois = null;
+let selecao = null;
+let selecao2 = null;
 
 
 const nomeVetor = ["frente", "verso"];
 
 function entrarNumeroCartas(){
-   // numeroDeCartas = 4;
+   
         numeroDeCartas = parseInt(prompt("Entre com a quantidade de cartas do jogo (o número deve estar entre 4 e 14 e ser par):"));
 
     while (numeroDeCartas<4 || numeroDeCartas>14 || numeroDeCartas%2!==0){
@@ -30,10 +33,9 @@ function entrarNumeroCartas(){
 
     } 
 
-    // cartasDoJogo = [1,2,3,1,2,3]
+   
     cartasDoJogo.sort(comparador); 
-    // cartasDoJogo = [1,3,2,1,2,3]
-      // cartasDoJogo = [1,1,2,3,2,3]
+   
 
     for(let i=0; i<numeroDeCartas; i++){ 
         CartasSelecionadas.innerHTML += `<div class="carta" data-identifier="card">
@@ -52,25 +54,37 @@ entrarNumeroCartas();
 function comparador() { 
 	return Math.random() - 0.5; 
 }
-function virarcarta(selecionado){   
-  // const girar = document.querySelector(".back-face");
-    //selecionado.classList.add("virarback");
-   // const girar2 = document.querySelector(".front-face");
-   selecionado.classList.add("virarfrente");
-   numeroDeCliques++;
-      
-   if(numeroDeCliques%2 !==0){
-       comparacao = selecionado.classList[2];
-   }else if(comparacao == selecionado.classList[2]){
-    console.log("iguais");    
-    }else{
-        selecionado.classList.add("front-face");
-    }
 
+function virarcarta(selecionado){ 
+
+   selecionado.classList.add("virarfrente");
+   
+   numeroDeCliques++;
+     
+   if(numeroDeCliques%2 !==0){
+       
+       comparacao = selecionado.classList[2];
+       selecao=selecionado;
+
+   }else{
+    comparacaoDois = selecionado.classList[2];
+     if(comparacao !== comparacaoDois){
+       console.log("qualquer coisa");
+       selecao2=selecionado;
+    setTimeout(cartavirada,1000);
+        
+    }  
+   
+    }
+}    
+function cartavirada(){
+    selecao.classList.remove("virarfrente");  
+    selecao2.classList.remove("virarfrente");
+  }
    
    
   
-}  
+ 
 
 
 
