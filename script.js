@@ -1,6 +1,8 @@
 let numeroDeCartas=0;
 let todasCartas = ["card1.gif", "card2.gif", "card3.gif", "card4.gif", "card5.gif", "card6.gif", "card7.gif"];
 let cartasDoJogo = [];
+let numeroDeCliques = 0;
+let comparacao = null;
 
 
 const nomeVetor = ["frente", "verso"];
@@ -34,11 +36,11 @@ function entrarNumeroCartas(){
       // cartasDoJogo = [1,1,2,3,2,3]
 
     for(let i=0; i<numeroDeCartas; i++){ 
-        CartasSelecionadas.innerHTML += `<div class="carta">
-        <div class = "face back-face">
+        CartasSelecionadas.innerHTML += `<div class="carta" data-identifier="card">
+        <div class = "face back-face" data-identifier="back-face">
         <img src = "img/${cartasDoJogo[i]}">
         </div>
-        <div class = "face front-face" onclick="virarcarta(this)">
+        <div class = "face front-face ${cartasDoJogo[i]}"  onclick="virarcarta(this)" data-identifier="front-face" >
         <img src = "img/front.png">
         </div>        
         </div>`;
@@ -50,11 +52,24 @@ entrarNumeroCartas();
 function comparador() { 
 	return Math.random() - 0.5; 
 }
-function virarcarta(){   
-   const girar = document.querySelector(".back-face");
-    girar.classList.add("virarback");
-    const girar2= document.querySelector(".front-face");
-    girar2.classList.add("virarfront");
+function virarcarta(selecionado){   
+  // const girar = document.querySelector(".back-face");
+    //selecionado.classList.add("virarback");
+   // const girar2 = document.querySelector(".front-face");
+   selecionado.classList.add("virarfrente");
+   numeroDeCliques++;
+      
+   if(numeroDeCliques%2 !==0){
+       comparacao = selecionado.classList[2];
+   }else if(comparacao == selecionado.classList[2]){
+    console.log("iguais");    
+    }else{
+        selecionado.classList.add("front-face");
+    }
+
+   
+   
+  
 }  
 
 

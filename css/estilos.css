@@ -23,7 +23,7 @@ main h1{
         align-items: center;         
     }
     .carta{
-      margin: 15px;
+      margin: 30px;
       width: 117px;
       height: 146px;
       position: relative;
@@ -47,16 +47,14 @@ main h1{
         width: 100px;
         height: 100px;
         }
-          .back-face {
-          transform: rotateY(180deg);
+      .back-face {
+          transform: rotateY(0deg);         
         }
-  
-        .carta .virarback {
-          transform: rotateY(0deg);
+       .carta .virarfrente {
+          transform: rotateY(180deg);          
         }
-  
-        .carta .virarfront {
-          transform: rotateY(-180deg);
+        .carta .virarverso {
+          transform: rotateY(0deg);          
         }
        
        
